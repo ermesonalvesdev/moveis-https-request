@@ -3,7 +3,6 @@ import { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import API from './src/api/api';
 import Moveis from './src/components/service';
-
 export default class App extends Component {
 
   constructor(props){
@@ -36,7 +35,10 @@ export default class App extends Component {
           
           <FlatList
           style={styles.flatList}
+          scrollEnabled={true}
           data={this.state.moveis}
+          horizontal={true}
+          scrollToOverflowEnabled={false}
           keyExtractor={item => item.id.toString()}
           renderItem={ ({item}) => <Moveis data={item} /> }
           />
@@ -54,6 +56,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 50
   },
 });
